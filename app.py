@@ -3,39 +3,31 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-
 model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = [
-        request.form['gender'],
-        float(request.form['ssc_p']),
-        float(request.form['hsc_p']),
-        float(request.form['degree_p']),
-        float(request.form['etest_p']),
-        float(request.form['mba_p']),
-        request.form['specialisation']
-    ]
+    # Example: Collect form data (adjust based on actual inputs)
+    cgpa = float(request.form['cgpa'])
+    # Add other features here...
+    features = np.array([[cgpa]])  # Replace with full feature list
 
-    # Convert categorical to numeric
-    gender = 1 if data[0] == 'Male' else 0
-    spec = 1 if data[6] == 'Mkt&Fin' else 0
+    prediction = model.predict(features)[0]
+    
+    # For chart
+    if hasattr(model, "predict_proba"):
+        probs = model.predict_proba(features)[0]
+        prob_data = {'Placed': round(probs[1]*100, 2), 'Not Placed': round(probs[0]*100, 2)}
+    else:
+        prob_data = None
 
-    input_data = np.array([[gender, data[1], data[2], data[3], data[4], data[5], spec]])
-    prediction = model.predict(input_data)[0]
-
-    result = "Placed ✅" if prediction == 1 else "Not Placed ❌"
-    return render_template('index.html', prediction_text=result)
-
-if __name__ == "__main__":
-    import os
+    return render_template('index.html', prediction=prediction, probabilities=prob_data)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT not set
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True, host="0.0.0.0", port=10000)
+
 
