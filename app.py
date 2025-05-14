@@ -13,19 +13,24 @@ def index():
 def predict():
     # Collecting form data
     cgpa = float(request.form['cgpa'])
-    gender = request.form['gender']
-    tenth = float(request.form['tenth'])
-    twelfth = float(request.form['twelfth'])
-    backlogs = int(request.form['backlogs'])
-    degree = float(request.form['degree'])
     college = request.form['college']
+    interview_score = float(request.form['interview_score'])
+    years_of_experience = float(request.form['years_of_experience'])
 
-    # Convert categorical features (e.g., gender, college) to numerical format
-    gender = 1 if gender == 'Male' else 0  # Assuming Male=1 and Female=0
-    college = 1 if college == 'College A' else 0  # Example; you may want to map to actual colleges
+    # Convert categorical features (e.g., college) to numerical format
+    # Map colleges to numerical values (add more mapping if needed)
+    college_mapping = {
+        'IIT Bombay': 1,
+        'IIT Delhi': 2,
+        'NIT Trichy': 3,
+        'BITS Pilani': 4,
+        'VIT Vellore': 5,
+        'SRM University': 6
+    }
+    college_value = college_mapping.get(college, 0)
 
-    # Create the feature array with all 7 features
-    features = np.array([[cgpa, gender, tenth, twelfth, backlogs, degree, college]])
+    # Create the feature array with the necessary features
+    features = np.array([[cgpa, college_value, interview_score, years_of_experience]])
 
     # Predicting the placement status
     prediction = model.predict(features)[0]
@@ -41,3 +46,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=10000)
+
