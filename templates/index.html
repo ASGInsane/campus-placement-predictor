@@ -50,18 +50,38 @@
           <input type="number" step="0.01" name="cgpa" class="form-control" placeholder="Enter CGPA" required>
         </div>
 
-        <!-- Additional features (Add as needed) -->
+        <!-- Gender -->
         <div class="mb-3">
-          <label for="interview_score" class="form-label">Interview Score</label>
-          <input type="number" name="interview_score" class="form-control" placeholder="Enter Interview Score" required>
+          <label for="gender" class="form-label">Gender</label>
+          <select name="gender" class="form-select" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
         </div>
 
+        <!-- Tenth Grade -->
         <div class="mb-3">
-          <label for="years_of_experience" class="form-label">Years of Experience</label>
-          <input type="number" name="years_of_experience" class="form-control" placeholder="Enter Years of Experience" required>
+          <label for="tenth" class="form-label">Tenth Grade (%)</label>
+          <input type="number" step="0.01" name="tenth" class="form-control" placeholder="Enter Tenth Grade Percentage" required>
         </div>
 
-        <!-- Add more form fields here based on your model features -->
+        <!-- Twelfth Grade -->
+        <div class="mb-3">
+          <label for="twelfth" class="form-label">Twelfth Grade (%)</label>
+          <input type="number" step="0.01" name="twelfth" class="form-control" placeholder="Enter Twelfth Grade Percentage" required>
+        </div>
+
+        <!-- Backlogs -->
+        <div class="mb-3">
+          <label for="backlogs" class="form-label">Number of Backlogs</label>
+          <input type="number" name="backlogs" class="form-control" placeholder="Enter Backlogs" required>
+        </div>
+
+        <!-- Degree Percentage -->
+        <div class="mb-3">
+          <label for="degree" class="form-label">Degree Percentage</label>
+          <input type="number" step="0.01" name="degree" class="form-control" placeholder="Enter Degree Percentage" required>
+        </div>
 
         <!-- Submit button -->
         <div class="d-grid">
@@ -118,3 +138,4 @@
   </script>
 </body>
 </html>
+
