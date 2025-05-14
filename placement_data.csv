@@ -1,0 +1,12 @@
+gender,ssc_p,hsc_p,degree_p,etest_p,mba_p,specialisation,status
+Male,67.0,91.0,58.0,55.0,58.8,Mkt&Fin,Placed
+Female,79.0,78.0,68.0,86.0,66.3,Mkt&Fin,Placed
+Male,66.0,52.0,64.0,75.0,57.8,Mkt&HR,Not Placed
+Male,76.0,73.0,58.0,66.0,59.0,Mkt&HR,Placed
+Female,72.0,70.0,62.0,96.0,58.0,Mkt&Fin,Placed
+Male,78.0,83.0,67.0,92.0,77.5,Mkt&Fin,Placed
+Female,69.0,82.0,72.0,75.0,53.5,Mkt&HR,Placed
+Male,65.0,68.0,57.0,55.0,52.0,Mkt&HR,Not Placed
+Female,80.0,76.0,74.0,95.0,66.0,Mkt&Fin,Placed
+Male,58.0,71.0,57.0,52.0,59.0,Mkt&HR,Not Placed
+
