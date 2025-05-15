@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
-# Mapping for college names (example: you may modify this based on your training data)
+# Mapping for college names
 college_map = {
     'IIT Bombay': 0,
     'IIT Delhi': 1,
@@ -30,14 +30,13 @@ def predict():
         backlogs = int(request.form['backlogs'])
         degree = float(request.form['degree'])
         college = request.form['college']
-        interview_score = float(request.form['interview_score'])
 
         # Convert categorical values
         gender_num = 1 if gender == 'Male' else 0
-        college_num = college_map.get(college, -1)  # -1 if unknown (you can handle differently)
+        college_num = college_map.get(college, -1)
 
-        # Combine into features array
-        features = np.array([[cgpa, gender_num, tenth, twelfth, backlogs, degree, college_num, interview_score]])
+        # Combine into features array (7 features only)
+        features = np.array([[cgpa, gender_num, tenth, twelfth, backlogs, degree, college_num]])
 
         # Make prediction
         prediction = model.predict(features)[0]
@@ -58,6 +57,7 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=10000)
+
 
 
 

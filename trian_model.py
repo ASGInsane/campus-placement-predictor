@@ -16,8 +16,8 @@ df['college'] = college_encoder.fit_transform(df['college'])
 # Map target variable
 df['placed'] = df['placed'].map({'Placed': 1, 'Not Placed': 0})
 
-# Features and target
-X = df[['cgpa', 'gender', 'tenth', 'twelfth', 'backlogs', 'degree', 'college', 'interview_score']]
+# Features and target (interview_score removed)
+X = df[['cgpa', 'gender', 'tenth', 'twelfth', 'backlogs', 'degree', 'college']]
 y = df['placed']
 
 # Train model
@@ -29,7 +29,9 @@ model.fit(X_train, y_train)
 with open("model.pkl", "wb") as f:
     pickle.dump(model, f)
 
-# Save college encoder too (optional for reverse-mapping later)
+# Save college encoder (optional)
 with open("college_encoder.pkl", "wb") as f:
     pickle.dump(college_encoder, f)
+
+print("✅ Model trained and saved as model.pkl")
 

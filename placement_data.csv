@@ -1,13 +1,13 @@
-cgpa,gender,tenth,twelfth,backlogs,degree,college,interview_score,placed
-7.8,Male,85,88,0,80,IIT Bombay,9,Placed
-6.5,Female,78,75,2,70,NIT Trichy,7,Not Placed
-8.0,Male,90,89,0,85,BITS Pilani,8,Placed
-7.2,Female,88,82,1,76,SRM University,6,Placed
-6.0,Male,65,60,3,65,VIT Vellore,5,Not Placed
-8.5,Female,95,92,0,90,IIT Delhi,10,Placed
-7.0,Male,80,79,1,75,SRM University,6,Placed
-6.8,Female,70,72,2,69,VIT Vellore,5,Not Placed
-7.9,Male,85,86,0,83,NIT Trichy,8,Placed
-7.1,Female,82,80,1,78,BITS Pilani,7,Placed
+cgpa,gender,tenth,twelfth,backlogs,degree,college,placed
+7.8,Male,85,88,0,80,IIT Bombay,Placed
+6.5,Female,78,75,2,70,NIT Trichy,Not Placed
+8.0,Male,90,89,0,85,BITS Pilani,Placed
+7.2,Female,88,82,1,76,SRM University,Placed
+6.0,Male,65,60,3,65,VIT Vellore,Not Placed
+8.5,Female,95,92,0,90,IIT Delhi,Placed
+7.0,Male,80,79,1,75,SRM University,Placed
+6.8,Female,70,72,2,69,VIT Vellore,Not Placed
+7.9,Male,85,86,0,83,NIT Trichy,Placed
+7.1,Female,82,80,1,78,BITS Pilani,Placed
 
 
