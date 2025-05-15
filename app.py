@@ -55,8 +55,22 @@ def predict():
     except Exception as e:
         return f"Error occurred: {e}", 500
 
+@app.route('/dashboard')
+def dashboard():
+    # Example stats for dashboard; replace with real data or model insights
+    stats = {
+        'total_students': 150,
+        'placed_students': 120,
+        'not_placed_students': 30,
+        'placement_rate': round(120 / 150 * 100, 2),
+        'top_college': 'IIT Bombay',
+        'average_cgpa': 8.5,
+    }
+    return render_template('dashboard.html', stats=stats)
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=10000)
+
 
 
 
